@@ -1,0 +1,40 @@
+host: 0.0.0.0
+port: 9091
+
+log:
+  level: debug
+
+authentication_backend:
+  file:
+    path: /config/users_database.yml
+
+access_control:
+  default_policy: deny
+  rules:
+    - domain: ["3.88.186.237"]
+      policy: one_factor
+
+session:
+  name: authelia_session
+  secret: 41892aa25f1bfc3be1d5a5c18f64c99f63df135c5d6d89344bb1e676bf3eef84
+  expiration: 1h
+  inactivity: 5m
+  cookies:
+    - name: authelia_session
+      domain: 3.88.186.237
+      same_site: lax
+      authelia_url: https://3.88.186.237/authelia
+
+storage:
+  local:
+    path: /config/db.sqlite3
+  encryption_key: 2ef64c1e8a1e6e2d92416fb092f344b8109c79c3f855b23f4d99edf3f15aad50
+
+notifier:
+  filesystem:
+    filename: /config/notification.txt
+
+identity_validation:
+  reset_password:
+    jwt_secret: 832e511aa727a8af2153cc2d54684d84956cdbb1922d85a949ea8cbdea547442
+

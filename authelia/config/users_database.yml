@@ -1,0 +1,6 @@
+users:
+  authelia:
+    password: "$argon2id$v=19$m=65536,t=3,p=4$mqMBMMoDdGoyxU5OXAVYsg$BoPNm8RK5tK46/llqaVevzzsC3dVmw1bNmLcGv1+6qo"  # We'll generate this below
+    displayname: "authelia user"
+    email: hemanth2112kumar@gmail.com
+
