@@ -1,0 +1,35 @@
+server:
+  address: tcp://0.0.0.0:9091
+
+session:
+  name: authelia_session
+  secret: 17111d4f847f06c0caa5cdd09c5bb642
+  expiration: 3600
+  inactivity: 300
+  cookies:
+    - domain: 3.82.187.17
+      authelia_url: https://3.82.187.17:9091
+
+storage:
+  local:
+    path: /config/db.sqlite3
+  encryption_key: 17111d4f847f06c0caa5cdd09c5bb642
+
+identity_validation:
+  reset_password:
+    jwt_secret: 17111d4f847f06c0caa5cdd09c5bb642
+
+authentication_backend:
+  file:
+    path: /config/users_database.yml
+
+access_control:
+  default_policy: deny
+  rules:
+    - domain: "*"
+      policy: one_factor
+
+notifier:
+  filesystem:
+    filename: /config/notification.txt
+
